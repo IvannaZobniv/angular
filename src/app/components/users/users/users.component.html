@@ -1,0 +1,3 @@
+<router-outlet></router-outlet>
+<app-user *ngFor="let user of users" [user]="user" (selectedUser)="getUser($event)" ></app-user>
+<div *ngIf="user">{{user.email}}</div>
