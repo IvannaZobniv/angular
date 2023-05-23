@@ -1,12 +1,13 @@
-.header{
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
-  color: snow;
   background-color: blue;
+  color: snow;
   height: 50px;
+  font-size: 25px;
 }
+
 .header div {
   padding: 0 10px;
 }

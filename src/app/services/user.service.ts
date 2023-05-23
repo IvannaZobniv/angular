@@ -9,12 +9,14 @@ import {urls} from "../contants";
 })
 export class UserService {
 
-  constructor(private httpClient:HttpClient) { }
-
-  getAll():Observable<IUser[]>{
-    return this.httpClient.get<IUser[]>(urls.users.users)
+  constructor(private httpClient: HttpClient) {
   }
-  getById(id:number):Observable<IUser>{
+
+  getAll(): Observable<IUser[]> {
+    return this.httpClient.get<IUser[]>(urls.users.full)
+  }
+
+  getById(id: number): Observable<IUser> {
     return this.httpClient.get<IUser>(urls.users.byId(id))
   }
 }
