@@ -12,16 +12,22 @@ import { UserComponent } from './components/users/user/user.component';
 import { UserDetailsComponent } from './components/users/user-details/user-details.component';
 import { UserDetailsPageComponent } from './pages/user-details-page/user-details-page.component';
 import {FormsModule} from "@angular/forms";
+import { PostComponent } from './components/posts/post/post.component';
+import { PostsComponent } from './components/posts/posts/posts.component';
+import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import { PostDetailsPageComponent } from './pages/post-details-page/post-details-page.component';
 
 const routes:Routes =[
   {path:'',component:MainLayoutComponent,children:[
       {path:'',redirectTo:'users',pathMatch:"full"},
+      {path:'',redirectTo:'posts',pathMatch:"full"},
       {path:'users',component:UserPageComponent,children:[
           {path:':id', component:UserDetailsPageComponent}
         ]},
-      {path:'posts',component:PostPageComponent}
+      {path:'posts',component:PostPageComponent,children:[
+          {path:':id', component:PostDetailsPageComponent}
+        ]},
     ]}
-
 ]
 @NgModule({
   declarations: [
@@ -34,6 +40,10 @@ const routes:Routes =[
     UserComponent,
     UserDetailsComponent,
     UserDetailsPageComponent,
+    PostComponent,
+    PostsComponent,
+    PostDetailsComponent,
+    PostDetailsPageComponent,
   ],
   imports: [
     BrowserModule,
