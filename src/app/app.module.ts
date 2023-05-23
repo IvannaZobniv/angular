@@ -4,8 +4,12 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { HeaderComponent } from './layouts/main-layout/header/header.component';
-import {UserModule} from "./modules/userModule/user.module";
-import {PostModule} from "./modules/postModule/post.module";
+import {HttpClientModule} from "@angular/common/http";
+import { CommentsComponent } from './modules/commentModule/components/comments/comments.component';
+import { CommentComponent } from './modules/commentModule/components/comment/comment.component';
+import { CommentDetailsComponent } from './modules/commentModule/components/comment-details/comment-details.component';
+import { CommentPageComponent } from './modules/commentModule/pages/comment-page/comment-page.component';
+import { CommentDetailsPageComponent } from './modules/commentModule/pages/comment-details-page/comment-details-page.component';
 
 
 
@@ -13,13 +17,12 @@ import {PostModule} from "./modules/postModule/post.module";
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule,
-    PostModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

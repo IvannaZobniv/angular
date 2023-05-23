@@ -1,0 +1,3 @@
+<router-outlet></router-outlet>
+<app-comment *ngFor="let comment of comments" [comment]="comment" (selectedComment)="getComment($event)"></app-comment>
+<div *ngIf="comment">{{comment.name}}</div>
