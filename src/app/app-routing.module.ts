@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {MainLayoutComponent} from "./layouts/main-layout/main-layout.component";
+import {MainLayoutsComponent} from "./layouts/main-layouts/main-layouts.component";
 
-
-const routes:Routes =[  {
-  path: '', component: MainLayoutComponent, children: [
-    {path: '', redirectTo: 'users', pathMatch: 'full'},
-    {path: 'users', loadChildren: () => import('./modules/userModule/user.module').then(m => m.UserModule)},
-    {path: 'posts', loadChildren: () => import('./modules/postModule/post.module').then(m => m.PostModule)},
-    {path: 'comments', loadChildren: () => import('./modules/commentModule/comment.module').then(m => m.CommentModule)},
-  ]
-}]
+const routes:Routes = [
+  {path:'', component:MainLayoutsComponent, children:[
+      {path:'', redirectTo:'auth/login', pathMatch:'full'},
+      {path:'auth', loadChildren:()=>import('./modules/auth/auth.module').then(m=>m.AuthModule)},
+      {path:'cars', loadChildren:()=>import('./modules/cars/cars.module').then(m=>m.CarsModule)}
+    ]}
+]
 
 @NgModule({
   declarations: [],
