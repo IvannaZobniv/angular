@@ -1,28 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { HeaderComponent } from './layouts/main-layout/header/header.component';
 import {HttpClientModule} from "@angular/common/http";
-import { CommentsComponent } from './modules/commentModule/components/comments/comments.component';
-import { CommentComponent } from './modules/commentModule/components/comment/comment.component';
-import { CommentDetailsComponent } from './modules/commentModule/components/comment-details/comment-details.component';
-import { CommentPageComponent } from './modules/commentModule/pages/comment-page/comment-page.component';
-import { CommentDetailsPageComponent } from './modules/commentModule/pages/comment-details-page/comment-details-page.component';
+import { CarComponent } from './components/car/car.component';
+import { CarsComponent } from './components/cars/cars.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent,
-    HeaderComponent
+    CarComponent,
+    CarsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
