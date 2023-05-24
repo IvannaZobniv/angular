@@ -1,3 +1,3 @@
 export interface IEnvironment{
-  API:string;
+  API:string
 }

@@ -1,30 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { HeaderComponent } from './layouts/main-layout/header/header.component';
-import {HttpClientModule} from "@angular/common/http";
-import { CommentsComponent } from './modules/commentModule/components/comments/comments.component';
-import { CommentComponent } from './modules/commentModule/components/comment/comment.component';
-import { CommentDetailsComponent } from './modules/commentModule/components/comment-details/comment-details.component';
-import { CommentPageComponent } from './modules/commentModule/pages/comment-page/comment-page.component';
-import { CommentDetailsPageComponent } from './modules/commentModule/pages/comment-details-page/comment-details-page.component';
-
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from "./app-routing.module";
+import { MainLayoutsComponent } from './layouts/main-layouts/main-layouts.component';
+import { HeaderComponent } from './layouts/main-layouts/header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MainInterceptor} from "./main.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent,
+    MainLayoutsComponent,
     HeaderComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: MainInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
