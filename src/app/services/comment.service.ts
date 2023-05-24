@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {delay, Observable} from "rxjs";
 import {IComment} from "../interfaces";
 import {urls} from "../contants";
 
@@ -15,7 +15,7 @@ export class CommentService {
   }
 
   getById(id: number): Observable<IComment> {
-    return this.httpClient.get<IComment>(urls.comments.byId(id))
+    return this.httpClient.get<IComment>(urls.comments.byId(id)).pipe(delay(2000))
   }
 
 }
