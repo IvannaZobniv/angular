@@ -10,16 +10,9 @@ import {CommentService} from "../../../../services";
 })
 export class CommentDetailsComponent implements OnInit{
   comment: IComment;
-  constructor(private activatedRoute: ActivatedRoute, private commentService: CommentService,private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute) {
   }
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({postId}) =>{
-      const state =this.router.getCurrentNavigation()?.extras.state as IComment;
-      if (!state){
-        this.commentService.getById(postId).subscribe(value => this.comment=value)
-      }else {
-        this.comment =state
-      }
-    })
+    this.activatedRoute.data.subscribe(({commentData})=>this.comment=commentData)
   }
 }
