@@ -10,7 +10,11 @@ import {Observable} from "rxjs";
 export class CarService {
   constructor(private httpClient: HttpClient) {
   }
-  getAll():Observable<IPagination<ICar>>{
-    return this.httpClient.get<IPagination<ICar>>(urls.cars.full)
+  getAll(page = 1): Observable<IPagination<ICar>> {
+    return this.httpClient.get<IPagination<ICar>>(urls.cars.full, {params: {page}})
+  }
+
+  getById(id: number): Observable<ICar> {
+    return this.httpClient.get<ICar>(urls.cars.byId(id))
   }
 }

@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {CarService} from "../../../../services";
+import {Component, Input, OnInit} from '@angular/core';
 import {ICar} from "../../../../interfaces";
 
 @Component({
@@ -8,12 +7,11 @@ import {ICar} from "../../../../interfaces";
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
+  @Input()
   cars: ICar[];
-
-  constructor(private carService: CarService) {
-  }
+  panelOpenState = false;
 
   ngOnInit(): void {
-    this.carService.getAll().subscribe(value => this.cars = value.items)
   }
+
 }
