@@ -1,0 +1,4 @@
+<p>APP</p>
+<button (click)="inc()">change props</button>
+<button (click)="flag = !flag">show/hide</button>
+<app-main *ngIf="flag" [asd]='num'></app-main>
